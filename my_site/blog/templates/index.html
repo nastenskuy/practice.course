@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  My Blog
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "post.css" %}">
+  <link rel="stylesheet" href="{% static "index.css" %}">
+{% endblock %}
+
+{% block content %}
+  <section id="welcome">
+    <header>
+      <img src="{% static "images/me.jpg"%}" alt="Anastasia - it`s my site" />
+      <h2>Anastasia-Anastasia </h2>
+    </header>
+    <p>Hi, I am Anastasia and this is a blog about my life and travels!</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+      {% for post in posts %}
+        {% include "includes/post.html" %}
+      {% endfor %}
+    </ul>
+
+  </section>
+  <section id="about">
+    <h2>What I Do</h2>
+    <p>I dream of visiting all the countries of the world, especially Ireland!
+    </p>
+    <p> I like to play volleyball and play the piano!
+    </p>
+  </section>
+{% endblock %}
